@@ -1,0 +1,7 @@
+1. Good UI to choose games
+2. Functionality to go back to main menu
+3. Profile
+4. ScoreBoard
+5. Login/Resgister
+6. Logout
+7. Points Table
