@@ -1,1 +1,1 @@
-rand
+player1
