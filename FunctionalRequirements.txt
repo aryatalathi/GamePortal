@@ -1,7 +1,36 @@
 1. Good UI to choose games
 2. Functionality to go back to main menu
-3. Profile
-4. ScoreBoard
-5. Login/Resgister
-6. Logout
-7. Points Table
+3. Mainatining Scores to declare winner at the end.
+
+I. GuessGame : 
+1. Two players should be able to play the game
+2. Levels should be added like easy, medium, hard.
+3. User should be given extra chance to guess if first guess is wrong
+4. Points should be awarded to the users and stores in ScoreBoard
+5. Functionality to check answers should be there
+6. If user completes easy level, he/she should be given chance to play medium level and hard level respectively after that.
+
+II. SnakeAndLAdder : 
+1. Two players should be able to play the game
+2. Right player name should be asked to play at right time
+3. Randomness should be there while rolling dice
+4. If ladder is there, player's pawn  should be forwarded to the end of ladder
+5. If snake is there, player's pawn should be placed back to the starting point of the snake
+6. Status should be displayed often
+7. Game should terminate only when any of the player reaches 100 or more
+8. At the end, winner should be displayed
+
+III. QuizGame : 
+1.Two players should be able to play the game
+2. Levels should be added like easy, medium, hard.
+3. User should be given extra chance to answer if first answer is wrong
+4. Points should be awarded to the users and stores in ScoreBoard
+5. Functionality to check answers should be there
+6. If user completes easy level, he/she should be given chance to play medium level and hard level respectively after that.
+
+IV. TicTacToe : 
+1. Two players should be able to play the game
+2. First player gets X, second player gets o
+3. Status (TicTacToe board) should be displayed every time to get idea to the players
+4. It should check for winner/tie conditions every time
+5. Winner should be displayed at the end 

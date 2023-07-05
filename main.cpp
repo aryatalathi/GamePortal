@@ -7,12 +7,43 @@
 
 using namespace std;
 
+int player1 = 0, player2 = 0; 
+char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+int row, col;
+char token = 'X';
+bool draw = false;
+string player1name, player2name;
+int choice;
+string userChoice;
+
 void displayMenu(){
     cout<<"\t1. Guess Game"<<endl;
     cout<<"\t2. Snake & Ladder"<<endl;
     cout<<"\t3. Quiz Game"<<endl;
     cout<<"\t4. Tic Tac Toe"<<endl;
     cout<<"\t5. Exit"<<endl;
+}
+
+void UserChoices(){
+    cout<<"Do you want play other games?"<<endl;
+    cin>>userChoice;
+
+    if(userChoice == "YES" || userChoice == "yes" || userChoice == "y"){
+            displayMenu();
+    }    
+    else{
+            cout<<"\n"<<player1name<<" got total "<<player1 << " points!!!"<<endl;
+            cout<<"\n"<<player2name<<" got total "<<player2 << " points!!!"<<endl;
+            if(player1 > player2){
+                cout<<"\n"<<player1name << " is WINNER!!!"<<endl;
+            }
+            else if(player2 > player1){
+                cout<<"\n"<<player2name << " is WINNER!!!"<<endl;
+            }
+            else{
+                    cout<<"\n You both got equal point, it's a TIE!!!"<<endl;
+            }
+    }
 }
 /*------------------------------------------------------------------------------------------------------------------------*/
 //GuessGame
@@ -219,7 +250,7 @@ int easyGuess(){
         else{
                 cout<<"Oops! Wrong answer"<<endl;
                 cout<<"Try again! : "<<endl;
-                cin>>anstwo;
+                cin>>ansthree;
                 if(ansthree == 64){
                         cout<<"Correct answer"<<endl;
                         cout<<"One point added!!!"<<endl;
@@ -243,10 +274,11 @@ int easyGuess(){
         return totaleasypoints;
 }
 
-void GuessGame(){
+int Guess(){
     cout<<"\tGUESS THE RIGHT NUMBER\t"<<endl;
     int totaleasypoints=0, totalmediumpoints=0, totalhardpoints=0;
 
+    //cout<<"\n" <<player1name <<" will play first"<<endl;
     cout<<"\tCHOOSE LEVEL\t"<<endl;
     cout<<"\t1. Easy"<<"\t2. Medium"<<"\t3.Hard"<<endl;
     int level;
@@ -265,7 +297,30 @@ void GuessGame(){
     totalPoints += totaleasypoints+totalmediumpoints+totalhardpoints;
     cout<<"Congratulations!!! You got total "<<totalPoints<<" points!!!"<<endl;
 
-    displayMenu();
+    return totalPoints;    
+    //displayMenu();
+}
+
+int guessPlayer1(){
+        int totalPoints = Guess();
+        player1 += totalPoints;
+        return player1;
+}
+int guessPlayer2(){
+        int totalPoints = Guess();
+        player2 += totalPoints;
+        return player2;
+}
+void GuessGame(){
+        cout<<player1name<<" will play first!"<<endl;
+        guessPlayer1();
+        cout<<player2name<<" will play now!"<<endl;
+        guessPlayer2();
+        cout<<player1name << " got "<< player1 << " points in this game!!!"<<endl;
+        cout<<player2name << " got "<< player2 << " points in this game!!!"<<endl;
+
+        UserChoices();
+        //displayMenu();
 }
 
 /*------------------------------------------------------------------------------------------------------------------------*/
@@ -285,7 +340,7 @@ void SLboard()
     cout << endl;
 }
 
-void gamescore(char name1[], char name2[], int p1, int p2) 
+void gamescore(string name1, string name2, int p1, int p2) 
 {
     cout << "\n\t\tSTATUS\n";
     cout << "\n\t" << name1 << " is at position " << p1 << endl;
@@ -367,7 +422,7 @@ void play_dice(int & score)
 }
 void callFunctions(){
     void SLboard();
-    void gamescore(char name1[], char name2[], int p1, int p2);
+    void gamescore(string name1, string name2, int p1, int p2);
     void play_dice(int & score);
 }
 
@@ -375,18 +430,13 @@ void SnakeAndLadderGame(){
 
     callFunctions();
 
-    int player1 = 0, player2 = 0, lastposition;
-    char player1name[80], player2name[80];
+    int lastposition;
     system("cls");
     // randomize();
    
     cout << "\t\tSNAKE LADDER GAME"<<endl;
     
-    cout << "Enter Name of player 1 : "<<endl;
-    cin>>player1name;
-    
-    cout << "Enter Name of player 2 : "<<endl;
-    cin>>player2name;
+    //players();
 
     while (player1 <= 100 && player2 <= 100) 
 	{
@@ -423,14 +473,20 @@ void SnakeAndLadderGame(){
     
     gamescore(player1name, player2name, player1, player2);
    
-    if (player1 >= player2)
+    if (player1 >= player2){
         cout << "\n" << player1name << " is the winner!!!\n";
-    else
+        cout << "\n" << player1name << " got 10 points!!!"<<endl;
+        player1 += 10;
+    }
+    else{
         cout << "\n" << player2name << " is the winner!!!\n";
-    
+        cout << "\n" << player2name << " got 10 points!!!"<<endl;
+        player2 += 10;
+    }
     getch();
-
-    displayMenu();
+    
+    UserChoices();
+    //displayMenu();
 
 }
 
@@ -673,7 +729,7 @@ int easyQuiz(){
         return totaleasypoints;
 }
 
-void QuizGame(){
+int Quiz(){
     cout<<"\tGUESS THE RIGHT ANSWER\t"<<endl;
     int totaleasypoints=0, totalmediumpoints=0, totalhardpoints=0;
 
@@ -693,20 +749,35 @@ void QuizGame(){
 
     int totalPoints = 0;
     totalPoints += totaleasypoints+totalmediumpoints+totalhardpoints;
-    cout<<"Congratulations!!! You got total "<<totalPoints<<" points!!!"<<endl;
+    cout<<"Congratulations!!! " << "You got total "<<totalPoints<<" points!!!"<<endl;
 
-    displayMenu();
+    return totalPoints;    
+    //displayMenu();
+}
+int quizPlayer1(){
+        int totalPoints = Quiz();
+        player1 += totalPoints;
+        return player1;
+}
+int quizPlayer2(){
+        int totalPoints = Quiz();
+        player2 += totalPoints;
+        return player2;
+}
+void QuizGame(){
+        cout<<player1name<<" will play first!"<<endl;
+        quizPlayer1();
+        cout<<player2name<<" will play now!"<<endl;
+        quizPlayer2();
+        cout<<player1name << " got "<< player1 << " points in this game!!!"<<endl;
+        cout<<player2name << " got "<< player2 << " points in this game!!!"<<endl;
+
+        UserChoices();
+        //displayMenu();
 }
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
-
-
-char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-int row, col;
-char token = 'X';
-bool draw = false;
-string player1, player2;
 
 void display(){
 
@@ -728,11 +799,11 @@ void xogame(){
     int digit;
 
     if(token == 'X'){
-        cout<<"Hey "<<player1<<", Enter your choice"<<endl;
+        cout<<"Hey "<<player1name<<", Enter your choice"<<endl;
         cin>>digit;
     }
     if(token == 'O'){
-        cout<<"Hey "<<player2<<", Enter your choice"<<endl;
+        cout<<"Hey "<<player2name<<", Enter your choice"<<endl;
         cin>>digit;
     }
 
@@ -822,57 +893,72 @@ bool GameOver(){
 }
 void players(){
     cout<<"Enter name of player 1 : ";
-    cin>>player1;
+    cin>>player1name;
 
     cout<<"Enter name of player 2 : ";
-    cin>>player2;
+    cin>>player2name;
 }
 void decideWin(){
     if(token == 'X' && draw == false){
         display();
-        cout<<"Congrats "<<" "<<player2<<","<<" you won!!!"<<endl; 
+        cout<<"\nCongrats "<<" "<<player2name<<","<<" you won!!!"<<endl; 
+        player2 += 10;
+        cout<<"\n"<<player2name<<" got 10 points!!!"<<endl;
     }
     else if(token == 'O' && draw == false){
         display();
-        cout<<"Congrats "<<" "<<player1<<","<<" you won!!!"<<endl;
+        cout<<"Congrats "<<" "<<player1name<<","<<" you won!!!"<<endl;
+        player1 += 10;
+        cout<<"\n"<<player1name<<" got 10 points!!!"<<endl;
     }
     else{
-        display();
+        // display();
         cout<<"Oh No! It's tie!!"<<endl;
+        player1 += 5;
+        player2 += 5;
     }
 }
 void TicTacToeGame(){
-    players();
+    //players();
     while(GameOver()){
         display();
         xogame();
         GameOver();
     }
     decideWin();
-    displayMenu();
+    UserChoices();
+    //displayMenu();
 }
 
 int main(){
     cout<<"\tWelcome to the Game Portal!\n"<<endl;
 
     displayMenu();
-    int choice;
-    cout<<"\nWhich Game do you want to play?"<<endl;
-    cin>>choice;
-
-    switch(choice){
-        case 0 : displayMenu();
-                break;
-        case 1 : GuessGame();
-                break;
-        case 2 : SnakeAndLadderGame();
-                break;
-        case 3 : QuizGame();
-                break;
-        case 4 : TicTacToeGame();
-                break;
-        case 5 : cout<<"Thank You! Visit Again! :)"<<endl;
-                break;  
+    
+    players();
+   
+    while(choice!=5){
+        cout<<"\nWhich Game do you want to play?"<<endl;
+        cin>>choice;
+                switch(choice){
+                case 0 : displayMenu();
+                        break;
+                case 1 : GuessGame();
+                        break;
+                case 2 : SnakeAndLadderGame();
+                        break;
+                case 3 : QuizGame();
+                        break;
+                case 4 : TicTacToeGame();
+                        break;
+                case 5 : {
+                        
+                        cout<<"Thank You! Visit Again! :)"<<endl;
+                        break;  
+                }
     }
+
+    }
+    
     return 0;
 }
