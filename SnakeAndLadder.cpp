@@ -6,71 +6,8 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-void board();
-void gamescore(char name1[], char name2[], int p1, int p2);
-void play_dice(int & score);
 
-int main()
-{
-    int player1 = 0, player2 = 0, lastposition;
-    char player1name[80], player2name[80];
-    system("cls");
-    // randomize();
-   
-    cout << "\t\tSNAKE LADDER GAME"<<endl;
-    
-    cout << "Enter Name of player 1 : "<<endl;
-    cin>>player1name;
-    
-    cout << "\n\n\nEnter Name of player 2 : "<<endl;
-    cin>>player2name;
-
-    while (player1 <= 100 && player2 <= 100) 
-	{
-        board();
-        gamescore(player1name, player2name, player1, player2);
-        cout << "\n\n--->" << player1name << " Now your Turn >> Press y to play";
-        getch();
-
-        lastposition = player1;
-        
-        play_dice(player1);
-        
-        if (player1 < lastposition)
-            cout << "\n\aOops!! Snake found !! You are at postion " << player1 << "\n";
-        else if (player1 > lastposition + 6)
-            cout << "\nGreat!! you got a ladder !! You are at position " << player1;
-            cout << player2name << ", your Turn >> Press y to play ";
-        getch();
-        
-        lastposition = player2;
-        
-        play_dice(player2);
-
-        if (player2 < lastposition)
-            cout << "\n\n\aOops!! Snake found !! You are at position " << player2 << "\n";
-        else if (player2 > lastposition + 6)
-            cout << "\n\nGreat!! you got a ladder !! You are at position " << player2 << "\n";
-        getch();
-    }
-
-    system("cls");
-    
-    cout << "\t\tRESULTS\t\t";
-    
-    gamescore(player1name, player2name, player1, player2);
-   
-    if (player1 >= player2)
-        cout << player1name << " is the winner!!!\n\n";
-    else
-        cout << player2name << " is the winner!!!\n\n";
-    
-    getch();
-
-    return 0;
-}
-
-void board() 
+void SLboard() 
 {
     system("cls");
     
@@ -164,4 +101,78 @@ void play_dice(int & score)
     case 80:
         score = 100;
     }
+}
+void callFunctions(){
+    void SLboard();
+    void gamescore(char name1[], char name2[], int p1, int p2);
+    void play_dice(int & score);
+}
+
+void SnakeAndLadderGame(){
+
+    callFunctions();
+
+    int player1 = 0, player2 = 0, lastposition;
+    char player1name[80], player2name[80];
+    system("cls");
+    // randomize();
+   
+    cout << "\t\tSNAKE LADDER GAME"<<endl;
+    
+    cout << "Enter Name of player 1 : "<<endl;
+    cin>>player1name;
+    
+    cout << "Enter Name of player 2 : "<<endl;
+    cin>>player2name;
+
+    while (player1 <= 100 && player2 <= 100) 
+	{
+        SLboard();
+        gamescore(player1name, player2name, player1, player2);
+        cout << "\n" << player1name << " Now your Turn >> Press y to play";
+        getch();
+
+        lastposition = player1;
+        
+        play_dice(player1);
+        
+        if (player1 < lastposition)
+            cout << "\n\aOops!! Snake found !! You are at postion " << player1 << "\n";
+        else if (player1 > lastposition + 6)
+            cout << "\nGreat!! you got a ladder !! You are at position " << player1;
+            cout << "\n" << player2name << ", your Turn >> Press y to play ";
+        getch();
+        
+        lastposition = player2;
+        
+        play_dice(player2);
+
+        if (player2 < lastposition)
+            cout << "\n\n\aOops!! Snake found !! You are at position " << player2 << "\n";
+        else if (player2 > lastposition + 6)
+            cout << "\n\nGreat!! you got a ladder !! You are at position " << player2 << "\n";
+        getch();
+    }
+
+    system("cls");
+    
+    cout << "\t\tRESULTS\t\t";
+    
+    gamescore(player1name, player2name, player1, player2);
+   
+    if (player1 >= player2)
+        cout << "\n" << player1name << " is the winner!!!\n";
+    else
+        cout << "\n" << player2name << " is the winner!!!\n";
+    
+    getch();
+
+}
+
+
+
+int main()
+{
+    SnakeAndLadderGame();
+    return 0;
 }

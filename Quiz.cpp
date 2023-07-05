@@ -3,8 +3,8 @@
 
 using namespace std;
 
-//GuessGame
-int hardGuess(){
+//QuizGame
+int hardQuiz(){
         int points = 0;
         int ansone, anstwo, ansthree;
         cout<<"Q1. I'm three digit palindromic number, which is the difference between two three digit palindromic squares, can you guess which number am I?"<<endl;
@@ -74,7 +74,7 @@ int hardGuess(){
         return totalhardpoints;
 }
 
-int mediumGuess(){
+int mediumQuiz(){
         int points = 0;
         int ansone, anstwo, ansthree;
         cout<<"Q1. I'm four digit square of a two digit number, I am he maximum number of computer memory addresses that can be referenced with ten binary switches, can you guess which number am I?"<<endl;
@@ -144,7 +144,7 @@ int mediumGuess(){
         string response;
         cin>>response;
         if(response == "YES" || response == "yes" || response == "y"){
-            points += hardGuess();
+            points += hardQuiz();
         }
     
 
@@ -152,7 +152,7 @@ int mediumGuess(){
         return totalmediumpoints;
 }
 
-int easyGuess(){
+int easyQuiz(){
         int points = 0;
         int ansone, anstwo, ansthree;
         cout<<"Q1. I'm only even prime mumber, can you guess which number am I?"<<endl;
@@ -223,7 +223,7 @@ int easyGuess(){
         string response;
         cin>>response;
         if(response == "YES" || response == "yes" || response == "y"){
-            points += mediumGuess();
+            points += mediumQuiz();
         }
     
 
@@ -231,7 +231,7 @@ int easyGuess(){
         return totaleasypoints;
 }
 
-void GuessGame(){
+void QuizGame(){
     cout<<"\tGUESS THE RIGHT NUMBER\t"<<endl;
     int totaleasypoints=0, totalmediumpoints=0, totalhardpoints=0;
 
@@ -241,11 +241,11 @@ void GuessGame(){
     cin>>level;
 
     switch(level){
-            case 1 : totaleasypoints = easyGuess();
+            case 1 : totaleasypoints = easyQuiz();
                         break;
-            case 2 : totaleasypoints = mediumGuess();
+            case 2 : totaleasypoints = mediumQuiz();
                         break;
-            case 3 : totaleasypoints = hardGuess();
+            case 3 : totaleasypoints = hardQuiz();
                         break;
     }
 
@@ -256,6 +256,6 @@ void GuessGame(){
 
 
 int main(){
-    GuessGame();
+    QuizGame();
     return 0;
 }

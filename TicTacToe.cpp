@@ -124,19 +124,14 @@ bool GameOver(){
     draw = true;
     return false;
 }
-int main(){
+void players(){
     cout<<"Enter name of player 1 : ";
     cin>>player1;
 
     cout<<"Enter name of player 2 : ";
     cin>>player2;
-
-    while(GameOver()){
-        display();
-        game();
-        GameOver();
-    }
-
+}
+void decideWin(){
     if(token == 'X' && draw == false){
         display();
         cout<<"Congrats "<<" "<<player2<<","<<" you won!!!"<<endl; 
@@ -146,7 +141,22 @@ int main(){
         cout<<"Congrats "<<" "<<player1<<","<<" you won!!!"<<endl;
     }
     else{
+        display();
         cout<<"Oh No! It's tie!!"<<endl;
     }
+}
+void TicTacToeGame(){
+    players();
+    while(GameOver()){
+        display();
+        game();
+        GameOver();
+    }
+    decideWin();
+
+}
+int main(){
+    
+    TicTacToeGame();
     return 0;
 }
