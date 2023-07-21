@@ -1,0 +1,3 @@
+g++ main.cpp GuessGame.cpp TicTacToeGame.cpp SnakeAndLadderGame.cpp QuizGame.cpp -o game_hub
+
+./game_hub
