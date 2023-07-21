@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<time.h>
 #include<bits/stdc++.h>
-#include "SnakeAndLadder.h"
+#include "SnakeAndLadderGame.h"
 using namespace std;
 
 void SnakeAndLadderGame:: SLboard() 
@@ -170,9 +170,9 @@ void SnakeAndLadderGame:: playGame(){
 }
 
 
-int main()
-{
-    SnakeAndLadderGame game;
-    game.playGame();
-    return 0;
-}
+// int main()
+// {
+//     SnakeAndLadderGame game;
+//     game.playGame();
+//     return 0;
+// }

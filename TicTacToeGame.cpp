@@ -7,11 +7,11 @@
 #include "TicTacToeGame.h"
 
 using namespace std;
-char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-int row, col;
-char token = 'X';
-bool draw = false;
-string player1, player2;
+char TicTacToeGame::board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+int TicTacToeGame::row = 0;
+int TicTacToeGame::col = 0;
+char TicTacToeGame::token = 'X';
+bool TicTacToeGame::draw = false;
 
 
 TicTacToeGame::TicTacToeGame() {
@@ -162,8 +162,8 @@ void TicTacToeGame::playGame() {
     decideWin();
 }
 
-int main(){
-    TicTacToeGame game;
-    game.playGame();
-    return 0;
-}
+// int main(){
+//     TicTacToeGame game;
+//     game.playGame();
+//     return 0;
+// }

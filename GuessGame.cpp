@@ -255,8 +255,8 @@ void GuessGame:: playGame(){
     cout<<"Congratulations!!! You got total "<<totalPoints<<" points!!!"<<endl;
 }
 
-int main(){
-    GuessGame game;
-    game.playGame();
-    return 0;
-}
+// int main(){
+//     GuessGame game;
+//     game.playGame();
+//     return 0;
+// }

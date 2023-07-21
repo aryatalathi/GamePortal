@@ -3,10 +3,10 @@
 
 class TicTacToeGame {
 private:
-    char board[3][3];
-    int row, col;
-    char token;
-    bool draw;
+    static char board[3][3];
+    static int row, col;
+    static char token;
+    static bool draw;
     std::string player1, player2;
 
 public:

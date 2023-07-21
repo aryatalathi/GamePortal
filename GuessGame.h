@@ -3,6 +3,7 @@
 
 class GuessGame {
 public:
+    void players();
     void playGame();
 
 private:
