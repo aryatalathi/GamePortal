@@ -172,7 +172,7 @@ int mediumGuess(){
         else{
                 cout<<"Oops! Wrong answer"<<endl;
                 cout<<"Try again! : "<<endl;
-                cin>>anstwo;
+                cin>>ansthree;
                 if(ansthree == 121){
                         cout<<"Correct answer"<<endl;
                         cout<<"One point added!!!"<<endl;
