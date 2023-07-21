@@ -1,9 +1,19 @@
 #include<iostream>
 #include<bits/stdc++.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 #include "GuessGame.h"
 //GuessGame
+
+void GuessGame::players() {
+    cout << "Enter the name of Player 1: "<<endl;
+    cin>>player1Name;
+    cout << "Enter the name of Player 2: "<<endl;
+    cin>>player2Name;
+}
 
 int GuessGame:: hardGuess(){
         int points = 0;
@@ -60,7 +70,7 @@ int GuessGame:: hardGuess(){
         else{
                 cout<<"Oops! Wrong answer"<<endl;
                 cout<<"Try again! : "<<endl;
-                cin>>anstwo;
+                cin>>ansthree;
                 if(ansthree == 585){
                         cout<<"Correct answer"<<endl;
                         cout<<"One point added!!!"<<endl;
@@ -130,7 +140,7 @@ int GuessGame:: mediumGuess(){
         else{
                 cout<<"Oops! Wrong answer"<<endl;
                 cout<<"Try again! : "<<endl;
-                cin>>anstwo;
+                cin>>ansthree;
                 if(ansthree == 121){
                         cout<<"Correct answer"<<endl;
                         cout<<"One point added!!!"<<endl;
@@ -141,10 +151,10 @@ int GuessGame:: mediumGuess(){
                         cout<<"Sorry! No points added"<<endl;
                 }
         }
-        cout<<"Do you want to play hard level??"<<endl;
-        string response;
+        cout<<"Do you want to play hard level?? 1.YES 2.NO"<<endl;
+        int response;
         cin>>response;
-        if(response == "YES" || response == "yes" || response == "y"){
+        if(response == 1){
             points += hardGuess();
         }
     
@@ -208,7 +218,7 @@ int GuessGame:: easyGuess(){
         else{
                 cout<<"Oops! Wrong answer"<<endl;
                 cout<<"Try again! : "<<endl;
-                cin>>anstwo;
+                cin>>ansthree;
                 if(ansthree == 64){
                         cout<<"Correct answer"<<endl;
                         cout<<"One point added!!!"<<endl;
@@ -220,10 +230,10 @@ int GuessGame:: easyGuess(){
                 }
         }
 
-        cout<<"Do you want to play medium level??"<<endl;
-        string response;
+        cout<<"Do you want to play medium level?? 1.YES 2.NO"<<endl;
+        int response;
         cin>>response;
-        if(response == "YES" || response == "yes" || response == "y"){
+        if(response == 1){
             points += mediumGuess();
         }
     
@@ -232,10 +242,11 @@ int GuessGame:: easyGuess(){
         return totaleasypoints;
 }
 
-void GuessGame:: playGame(){
+int GuessGame:: Guess(){
     cout<<"\tGUESS THE RIGHT NUMBER\t"<<endl;
     int totaleasypoints=0, totalmediumpoints=0, totalhardpoints=0;
 
+    //cout<<"\n" <<player1name <<" will play first"<<endl;
     cout<<"\tCHOOSE LEVEL\t"<<endl;
     cout<<"\t1. Easy"<<"\t2. Medium"<<"\t3.Hard"<<endl;
     int level;
@@ -253,6 +264,45 @@ void GuessGame:: playGame(){
     int totalPoints = 0;
     totalPoints += totaleasypoints+totalmediumpoints+totalhardpoints;
     cout<<"Congratulations!!! You got total "<<totalPoints<<" points!!!"<<endl;
+
+    return totalPoints;    
+    //displayMenu();
+}
+
+void GuessGame:: playGame(){
+        players();
+
+        cout << player1Name << " WILL PLAY FIRST!" << endl;
+        player1Points = Guess();
+        cout << player2Name << " WILL PLAY NOW!" << endl;
+        player2Points = Guess();
+
+        cout << player1Name << " GOT " << player1Points << " POINTS IN THIS GAME!!!" << endl;
+        cout << player2Name << " GOT " << player2Points << " POINTS IN THIS GAME!!!" << endl;
+
+
+        // cout<<"\tGUESS THE RIGHT NUMBER\t"<<endl;
+        // int totaleasypoints=0, totalmediumpoints=0, totalhardpoints=0;
+
+        // cout<<"\tCHOOSE LEVEL\t"<<endl;
+        // cout<<"\t1. Easy"<<"\t2. Medium"<<"\t3.Hard"<<endl;
+        // int level;
+        // cin>>level;
+
+        // switch(level){
+        //         case 1 : totaleasypoints = easyGuess();
+        //                         break;
+        //         case 2 : totaleasypoints = mediumGuess();
+        //                         break;
+        //         case 3 : totaleasypoints = hardGuess();
+        //                         break;
+        // }
+
+        // int totalPoints = 0;
+        // totalPoints += totaleasypoints+totalmediumpoints+totalhardpoints;
+        // cout<<"Congratulations!!! You got total "<<totalPoints<<" points!!!"<<endl;
+    
+    
 }
 
 // int main(){

@@ -3,10 +3,10 @@
 3. Mainatining Scores to declare winner at the end.
 
 I. GuessGame : 
-1. A player should be able to play the game
+1. Two players should be able to play the game
 2. Levels should be added like easy, medium, hard.
 3. User should be given extra chance to guess if first guess is wrong
-4. Points should be awarded to the users and stores in ScoreBoard
+4. Points should be awarded to the users and displayed in the end
 5. Functionality to check answers should be there
 6. If user completes easy level, he/she should be given chance to play medium level and hard level respectively after that.
 
@@ -21,10 +21,10 @@ II. SnakeAndLAdder :
 8. At the end, winner should be displayed
 
 III. QuizGame : 
-1.A player should be able to play the game
+1. Two playera should be able to play the game
 2. Levels should be added like easy, medium, hard.
 3. User should be given extra chance to answer if first answer is wrong
-4. Points should be awarded to the users and stores in ScoreBoard
+4. Points should be awarded to the users and displayed in the end
 5. Functionality to check answers should be there
 6. If user completes easy level, he/she should be given chance to play medium level and hard level respectively after that.
 
