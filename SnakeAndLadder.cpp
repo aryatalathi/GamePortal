@@ -4,10 +4,10 @@
 #include<stdio.h>
 #include<time.h>
 #include<bits/stdc++.h>
-
+#include "SnakeAndLadder.h"
 using namespace std;
 
-void SLboard() 
+void SnakeAndLadderGame:: SLboard() 
 {
     system("cls");
     
@@ -22,14 +22,14 @@ void SLboard()
     cout << endl;
 }
 
-void gamescore(char name1[], char name2[], int p1, int p2) 
+void SnakeAndLadderGame:: gamescore(char name1[], char name2[], int p1, int p2) 
 {
     cout << "\n\t\tSTATUS\n";
     cout << "\n\t" << name1 << " is at position " << p1 << endl;
     cout << "\t" << name2 << " is at position " << p2 << endl;
 }
 
-void play_dice(int & score) 
+void SnakeAndLadderGame:: play_dice(int & score) 
 {
     int dice;
     dice = rand()%6 + 1;
@@ -102,13 +102,13 @@ void play_dice(int & score)
         score = 100;
     }
 }
-void callFunctions(){
+void SnakeAndLadderGame:: callFunctions(){
     void SLboard();
     void gamescore(char name1[], char name2[], int p1, int p2);
     void play_dice(int & score);
 }
 
-void SnakeAndLadderGame(){
+void SnakeAndLadderGame:: playGame(){
 
     callFunctions();
 
@@ -170,9 +170,9 @@ void SnakeAndLadderGame(){
 }
 
 
-
 int main()
 {
-    SnakeAndLadderGame();
+    SnakeAndLadderGame game;
+    game.playGame();
     return 0;
 }

@@ -2,10 +2,9 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-#include "GuessGame.h"
-//GuessGame
-
-int GuessGame:: hardGuess(){
+#include "QuizGame.h"
+//QuizGame
+int QuizGame:: hardQuiz(){
         int points = 0;
         int ansone, anstwo, ansthree;
         cout<<"Q1. I'm three digit palindromic number, which is the difference between two three digit palindromic squares, can you guess which number am I?"<<endl;
@@ -75,7 +74,7 @@ int GuessGame:: hardGuess(){
         return totalhardpoints;
 }
 
-int GuessGame:: mediumGuess(){
+int QuizGame:: mediumQuiz(){
         int points = 0;
         int ansone, anstwo, ansthree;
         cout<<"Q1. I'm four digit square of a two digit number, I am he maximum number of computer memory addresses that can be referenced with ten binary switches, can you guess which number am I?"<<endl;
@@ -145,7 +144,7 @@ int GuessGame:: mediumGuess(){
         string response;
         cin>>response;
         if(response == "YES" || response == "yes" || response == "y"){
-            points += hardGuess();
+            points += hardQuiz();
         }
     
 
@@ -153,7 +152,7 @@ int GuessGame:: mediumGuess(){
         return totalmediumpoints;
 }
 
-int GuessGame:: easyGuess(){
+int QuizGame::easyQuiz(){
         int points = 0;
         int ansone, anstwo, ansthree;
         cout<<"Q1. I'm only even prime mumber, can you guess which number am I?"<<endl;
@@ -224,7 +223,7 @@ int GuessGame:: easyGuess(){
         string response;
         cin>>response;
         if(response == "YES" || response == "yes" || response == "y"){
-            points += mediumGuess();
+            points += mediumQuiz();
         }
     
 
@@ -232,7 +231,7 @@ int GuessGame:: easyGuess(){
         return totaleasypoints;
 }
 
-void GuessGame:: playGame(){
+void QuizGame:: playGame(){
     cout<<"\tGUESS THE RIGHT NUMBER\t"<<endl;
     int totaleasypoints=0, totalmediumpoints=0, totalhardpoints=0;
 
@@ -242,11 +241,11 @@ void GuessGame:: playGame(){
     cin>>level;
 
     switch(level){
-            case 1 : totaleasypoints = easyGuess();
+            case 1 : totaleasypoints = easyQuiz();
                         break;
-            case 2 : totaleasypoints = mediumGuess();
+            case 2 : totaleasypoints = mediumQuiz();
                         break;
-            case 3 : totaleasypoints = hardGuess();
+            case 3 : totaleasypoints = hardQuiz();
                         break;
     }
 
@@ -256,7 +255,7 @@ void GuessGame:: playGame(){
 }
 
 int main(){
-    GuessGame game;
+    QuizGame game;
     game.playGame();
     return 0;
 }

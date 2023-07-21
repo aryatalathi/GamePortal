@@ -1,18 +1,26 @@
+
 #include<conio.h>
 #include<stdlib.h>
 #include<stdio.h>
 #include<time.h>
 #include<bits/stdc++.h>
+#include "TicTacToeGame.h"
 
 using namespace std;
-
 char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 int row, col;
 char token = 'X';
 bool draw = false;
 string player1, player2;
 
-void display(){
+
+TicTacToeGame::TicTacToeGame() {
+    token = 'X';
+    draw = false;
+}
+
+
+void TicTacToeGame:: display(){
 
     // string player1, player2;
 
@@ -28,7 +36,7 @@ void display(){
 
 }
 
-void game(){
+void TicTacToeGame::game(){
     int digit;
 
     if(token == 'X'){
@@ -102,7 +110,7 @@ void game(){
     }
     //display();
 }
-bool GameOver(){
+bool TicTacToeGame:: GameOver(){
     for(int i=0; i<3; i++){
         if(board[i][0]  == board[i][1] && board[i][1] == board[i][2] || board[0][i]  == board[1][i] && board[1][i] == board[2][i]){
             return false;
@@ -124,14 +132,14 @@ bool GameOver(){
     draw = true;
     return false;
 }
-void players(){
+void TicTacToeGame::players(){
     cout<<"Enter name of player 1 : ";
     cin>>player1;
 
     cout<<"Enter name of player 2 : ";
     cin>>player2;
 }
-void decideWin(){
+void TicTacToeGame:: decideWin(){
     if(token == 'X' && draw == false){
         display();
         cout<<"Congrats "<<" "<<player2<<","<<" you won!!!"<<endl; 
@@ -145,18 +153,17 @@ void decideWin(){
         cout<<"Oh No! It's tie!!"<<endl;
     }
 }
-void TicTacToeGame(){
+void TicTacToeGame::playGame() {
     players();
-    while(GameOver()){
+    while (GameOver()) {
         display();
         game();
-        GameOver();
     }
     decideWin();
-
 }
+
 int main(){
-    
-    TicTacToeGame();
+    TicTacToeGame game;
+    game.playGame();
     return 0;
 }
