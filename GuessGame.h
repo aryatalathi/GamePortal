@@ -9,9 +9,7 @@ public:
     void playGame();
 
 private:
-    int secretNumber;
     int guess;
-    int attempts;
     std::string player1Name;
     std::string player2Name;
     int hardGuess();

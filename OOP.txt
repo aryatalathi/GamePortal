@@ -1,0 +1,23 @@
+Following are the OOP concept used in this project : 
+
+1. Encapsulation: 
+    Each class encapsulates its data and provides methods to interact with that data. 
+    For example, in TicTacToeGame, the board is declared as a private member variable, making it accessible only within the TicTacToeGame class. 
+    
+2. Abstraction: 
+    Each class abstracts away the implementation details and exposes only the essential interfaces for interacting with the game. 
+    This allows users to interact with the game objects without knowing the internal workings. 
+    For example, in QuizGame and GuessGame, all the questions are declared/stored privately.
+
+3. Inheritance: 
+    The TicTacToeGame and SnakeAndLadderGame classes both inherit from the Game base class. 
+    This represents an "is-a" relationship, where the derived classes inherit common properties and behaviors from the base class.
+
+4. Constructor: 
+    Each class has a constructor (GuessGame, TicTacToeGame, SnakeAndLadderGame, and QuizGame) to initialize their member variables when objects are created. 
+    
+5. Data Hiding: 
+    Access specifiers like private, protected, and public are used to hide the internal details of the classes and control the access to class members.
+
+6. Member Functions: 
+    Member functions in each class encapsulate the game logic and provide the necessary operations to play the games. 
